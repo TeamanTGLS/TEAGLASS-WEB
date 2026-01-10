@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TEAGLASS (TGLSS) — Whitepaper</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --fg:#e8eefc;
+      --mut:#a8b3cf;
+      --card:#121c33;
+      --line:rgba(255,255,255,.10);
+      --btn:rgba(255,255,255,.06);
+      --btnLine:rgba(255,255,255,.12);
+      --ok:#7ee787;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,Segoe UI,Roboto,Arial;
+      background:radial-gradient(1100px 520px at 18% 0%, #152a5a, var(--bg));
+      color:var(--fg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:30px 18px 64px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 16px rgba(126,231,135,.35)}
+    h1{margin:14px 0 6px;font-size:34px;letter-spacing:.2px}
+    .muted{color:var(--mut);line-height:1.55}
+    .box{
+      margin-top:16px;
+      background:rgba(18,28,51,.72);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      background:var(--btn);
+      border:1px solid var(--btnLine);
+      cursor:pointer;
+    }
+    .btn:hover{filter:brightness(1.06)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    article{padding:6px 6px 0}
+    h2{
+      margin:22px 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    p{margin:0 0 12px;color:#cfd8ff;line-height:1.75}
+    ul{margin:0 0 12px 20px;color:#cfd8ff;line-height:1.75}
+    .hr{height:1px;background:rgba(255,255,255,.08);margin:18px 0}
+    .note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color:var(--mut);
+      line-height:1.5;
+      font-size:13px;
+    }
+    @media (max-width:820px){
+      h1{font-size:30px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="pill"><span class="dot"></span><span>Whitepaper</span></div>
+      <div class="pill"><a href="../" class="muted">Back to official site</a></div>
+    </div>
+
+    <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
+    <div class="muted">Final English Version</div>
+
+    <div class="box">
+      <div class="muted">Essentials</div>
+      <div class="meta">
+        <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
+        <a class="btn" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">BscScan</a>
+        <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="muted">Contract Address</div>
+      <div class="meta">
+        <span class="btn mono" id="addr">0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75</span>
+        <button class="btn" onclick="copyAddr()">Copy</button>
+      </div>
+      <div class="muted" id="copied" style="display:none;margin-top:10px;">Copied ✅</div>
+    </div>
+
+    <div class="box">
+      <article>
+        <h2>Introduction</h2>
+        <p>Tea is one of the rare habits that has remained unchanged for centuries. Technology, money, and lifestyles evolve — tea simply stays. It brings people together, slows down the rush, and makes conversation possible.</p>
+        <p>TEAGLASS looks at this continuity as a <strong>culture meme</strong>. It is not a claim. It is not a promise.</p>
+
+        <h2>Approach</h2>
+        <p>Tea has walked quietly through history.</p>
+        <p>From ancient China’s mountain paths to the caravans of Central Asia, from Ottoman tea houses to British afternoon rituals — tea never tried to lead revolutions. It simply stayed.</p>
+        <p>Empires rose and fell. Currencies collapsed. Technologies replaced each other. Tea remained the same small moment of pause in human life.</p>
+        <p>TEAGLASS takes inspiration from this continuity. Not from trends. Not from speed. From the slow confidence of something that does not need to prove itself.</p>
+        <p>This project does not build grand narratives or artificial urgency. It rests on a simple truth: tea is brewed, shared, and continues.</p>
+        <p>No exaggerated promises. No complicated structures. Just enough space for culture to breathe — and enough tea for everyone.</p>
+
+        <h2>The Tea Man</h2>
+        <p>The teaman brews tea for those who come to drink it.</p>
+        <p>The teaman is not a manager. Does not set prices. Does not give direction.</p>
+        <p>The teaman only makes sure the water keeps boiling.</p>
+
+        <h2>Token Structure</h2>
+        <ul>
+          <li><strong>Token Name:</strong> TEAGLASS</li>
+          <li><strong>Symbol:</strong> TGLSS</li>
+          <li><strong>Total Supply:</strong> 18,101,981,000 TGLSS</li>
+        </ul>
+        <p>The full supply is created at launch. Circulation forms naturally over time.</p>
+
+        <h2>Liquidity Structure</h2>
+        <p>Liquidity is supported through practical and transparent actions, not promises. When needed, liquidity may be added manually to improve trading conditions and continuity.</p>
+        <p>This project does not claim automatic liquidity mechanisms, permanent price stability, or guaranteed depth. Liquidity conditions depend on market activity and available resources.</p>
+        <p><strong>There is no fixed liquidity lock period.</strong> If any lock is applied in the future, its terms and proof will be shared publicly.</p>
+
+        <h2>No Roadmap for Sale</h2>
+        <p>This project does not sell a roadmap. Because tea has no roadmap.</p>
+        <p>It is drunk today, and it will be drunk tomorrow. This is a culture meme.</p>
+
+        <h2>Final Words</h2>
+        <p>TEAGLASS is not an investment product. It is not a promise.</p>
+        <p>Drinking tea is a pleasure. Sometimes, it simply takes the tiredness away.</p>
+        <p>And tea always finds its way.</p>
+        <p><strong>TEAGLASS IS NOT A COMMUNITY.<br>IT IS A CULTURAL BROTHERHOOD.</strong></p>
+
+        <div class="note">
+          Disclaimer: This document is informational only and does not constitute financial advice.
+        </div>
+      </article>
+    </div>
+
+    <div class="muted" style="margin-top:18px;">
+      Tip: When you update this file and commit, GitHub Pages updates automatically.
+    </div>
+  </div>
+
+  <script>
+    function copyAddr(){
+      const t = document.getElementById("addr").textContent.trim();
+      navigator.clipboard.writeText(t).then(() => {
+        const el = document.getElementById("copied");
+        el.style.display = "block";
+        setTimeout(() => el.style.display = "none", 1400);
+      }).catch(() => {
+        alert("Copy failed. Please copy manually:\n" + t);
+      });
+    }
+  </script>
+</body>
+</html>
