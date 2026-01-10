@@ -1,125 +1,157 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8">
   <title>TEAGLASS (TGLSS)</title>
-  <meta name="description" content="TEAGLASS (TGLSS) — a calm, tea-driven cultural token. Not hype."/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Official landing page for TEAGLASS (TGLSS). A culture meme inspired by tea."/>
+
   <style>
     :root{
-      --bg:#0b1220; --fg:#e8eefc; --mut:#a8b3cf;
-      --card:rgba(18,28,51,.72); --line:rgba(255,255,255,.10);
-      --btn:rgba(255,255,255,.06); --btnLine:rgba(255,255,255,.12);
+      --bg:#0b1220;
+      --fg:#e8eefc;
+      --mut:#a8b3cf;
+      --card:rgba(18,28,51,.78);
+      --line:rgba(255,255,255,.12);
+      --btn:rgba(255,255,255,.08);
+      --btnLine:rgba(255,255,255,.18);
       --ok:#7ee787;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;
-      background:radial-gradient(1100px 520px at 18% 0%, #152a5a, var(--bg));
+    body{
+      margin:0;
+      font-family:system-ui,Segoe UI,Roboto,Arial;
       color:var(--fg);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)),
+        url("assets/Sylhet-Tea-Garden-1024x565.jpeg") center/cover no-repeat fixed;
+      min-height:100vh;
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:30px 18px 64px}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
     .top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;
-      background:rgba(255,255,255,.06);border:1px solid var(--line);}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{height:44px;width:auto}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      backdrop-filter: blur(6px);
+    }
     .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 16px rgba(126,231,135,.35)}
-    .hero{margin-top:18px;padding:22px;border-radius:22px;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border:1px solid var(--line);}
-    h1{margin:0;font-size:40px;letter-spacing:.2px}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    .sub{margin:10px 0 0;color:var(--mut);line-height:1.55}
-    .grid{margin-top:16px;display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{grid-column:span 6;padding:16px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
-    .card h3{margin:0 0 10px;font-size:16px}
-    .card p{margin:0 0 12px;color:var(--mut);line-height:1.55;font-size:14px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;
-      background:var(--btn);border:1px solid var(--btnLine);cursor:pointer}
+    h1{margin:16px 0 6px;font-size:36px;letter-spacing:.2px}
+    .muted{color:var(--mut);line-height:1.55}
+    .hero{
+      margin-top:18px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      backdrop-filter: blur(8px);
+    }
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:900px){ .grid{grid-template-columns:1.2fr .8fr} }
+    .box{
+      background:rgba(18,28,51,.7);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      backdrop-filter: blur(6px);
+    }
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      background:var(--btn);
+      border:1px solid var(--btnLine);
+      cursor:pointer;
+    }
     .btn:hover{filter:brightness(1.06)}
-    .btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .addr{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:10px 12px;border-radius:14px;
-      background:rgba(0,0,0,.18);border:1px solid var(--line)}
-    .small{font-size:12.5px;color:var(--mut)}
-    .note{margin-top:14px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.05);
-      border:1px solid var(--line);color:var(--mut);line-height:1.5;font-size:13px}
-    @media (max-width:820px){.card{grid-column:span 12}h1{font-size:34px}}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .hr{height:1px;background:rgba(255,255,255,.12);margin:14px 0}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:90px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+    @media(max-width:700px){ .gallery{grid-template-columns:repeat(2,1fr)} }
+    footer{margin-top:28px;color:var(--mut);font-size:13px}
   </style>
 </head>
+
 <body>
   <div class="wrap">
+    <!-- TOP BAR -->
     <div class="top">
-      <div class="pill"><span class="dot"></span><span>Not a coin. For tea lovers.</span></div>
-      <div class="pill"><span class="small">Official landing page</span></div>
+      <div class="brand">
+        <img class="logo" src="assets/7d7f3683-23d5-4d0e-ab08-4b5ac9ea0a0e.png" alt="TEAGLASS logo">
+        <div class="pill"><span class="dot"></span><span>Not a coin. For tea lovers.</span></div>
+      </div>
+      <div class="pill">Official landing page</div>
     </div>
 
-    <section class="hero">
-      <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
-      <p class="sub">
-        Tea is timeless, inexpensive, and a gathering point for calm conversation.
-        TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
-      </p>
+    <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
+    <p class="muted">
+      Tea is timeless, inexpensive, and a gathering point for calm conversation.
+      TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
+    </p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Contract</h3>
-          <p>Copy the official contract address or view it on BscScan:</p>
-
-          <div class="addr">
-            <a class="mono" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">
-              <span id="addr">0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75</span>
-            </a>
-            <button class="btn" onclick="copyAddr()">Copy</button>
-            <a class="btn" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">BscScan</a>
-          </div>
-
-          <div class="small" id="copied" style="display:none;margin-top:10px;">Copied ✅</div>
+    <!-- HERO -->
+    <div class="hero grid">
+      <!-- LEFT -->
+      <div class="box">
+        <div class="muted">Contract</div>
+        <p class="mono" id="addr">0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75</p>
+        <div class="meta">
+          <button class="btn" onclick="copyAddr()">Copy</button>
+          <a class="btn" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">BscScan</a>
         </div>
 
-        <div class="card">
-          <h3>Links</h3>
-          <p>Essentials in one place:</p>
-          <div class="row">
-            <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
-            <a class="btn" href="#" aria-disabled="true" onclick="return false;">Whitepaper (coming soon)</a>
-            <a class="btn" href="#" aria-disabled="true" onclick="return false;">Solidity (add link)</a>
-          </div>
+        <div class="hr"></div>
 
-          <div class="small" style="margin-top:10px;">
-            Contact: <a href="mailto:teaman.tglss@gmail.com">teaman.tglss@gmail.com</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>What this is</h3>
-          <p>
-            A simple public page to share the essentials: contract address, official links, and a short description.
-          </p>
-          <div class="note">
-            Disclaimer: This page is informational only. Nothing here is financial advice.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Culture line</h3>
-          <p class="mono" style="margin:0;">
-            TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.
-          </p>
-          <div class="small" style="margin-top:10px;">
-            A nod to tea heritage — calm, minimal, and human.
-          </div>
+        <div class="muted">Links</div>
+        <div class="meta">
+          <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
+          <!-- Whitepaper: dosya yolu net olsun diye index.html ile -->
+          <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
+          <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
         </div>
       </div>
-    </section>
+
+      <!-- RIGHT -->
+      <div class="box">
+        <div class="muted">What this is</div>
+        <p>
+          A simple public page to share the essentials: contract address, official links,
+          and a short description.
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="muted">Culture line</div>
+        <p><strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong></p>
+        <p class="muted">A nod to tea heritage — calm, minimal, and human.</p>
+
+        <div class="hr"></div>
+
+        <div class="muted">Tea gallery</div>
+        <div class="gallery">
+          <img src="assets/tea1.jpg" alt="Tea 1">
+          <img src="assets/tea2.jpg" alt="Tea 2">
+          <img src="assets/tea3.jpg" alt="Tea 3">
+          <img src="assets/tea4.jpg" alt="Tea 4">
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Disclaimer: This page is informational only. Nothing here is financial advice.
+    </footer>
   </div>
 
   <script>
     function copyAddr(){
       const t = document.getElementById("addr").textContent.trim();
       navigator.clipboard.writeText(t).then(() => {
-        const el = document.getElementById("copied");
-        el.style.display = "block";
-        setTimeout(() => el.style.display = "none", 1400);
+        alert("Copied");
       }).catch(() => {
         alert("Copy failed. Please copy manually:\n" + t);
       });
