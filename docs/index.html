@@ -98,10 +98,38 @@
     <div class="hero grid">
       <!-- LEFT -->
       <div class="box">
-        <div class="muted">Contract</div>
+
+        <div class="muted">Now on Solana</div>
+        <p class="mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
+        <div class="meta">
+          <button class="btn" onclick="copyText('mint')">Copy Mint</button>
+          <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank" rel="noopener">Swap (Raydium)</a>
+          <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">Pool</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="muted">Solana Pool</div>
+        <p class="mono" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</p>
+        <div class="meta">
+          <button class="btn" onclick="copyText('pool')">Copy Pool</button>
+          <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">View on Raydium</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="muted">Liquidity Vault</div>
+        <p class="mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
+        <div class="meta">
+          <button class="btn" onclick="copyText('vault')">Copy Vault</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="muted">Legacy on BSC (Archive)</div>
         <p class="mono" id="addr">0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75</p>
         <div class="meta">
-          <button class="btn" onclick="copyAddr()">Copy</button>
+          <button class="btn" onclick="copyText('addr')">Copy</button>
           <a class="btn" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">BscScan</a>
         </div>
 
@@ -110,8 +138,7 @@
         <div class="muted">Links</div>
         <div class="meta">
           <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
-          <!-- Whitepaper: dosya yolu net olsun diye index.html ile -->
-          <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
+          <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Whitepaper</a>
           <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
         </div>
       </div>
@@ -120,7 +147,7 @@
       <div class="box">
         <div class="muted">What this is</div>
         <p>
-          A simple public page to share the essentials: contract address, official links,
+          A simple public page to share the essentials: mint address, trading links,
           and a short description.
         </p>
 
@@ -128,7 +155,7 @@
 
         <div class="muted">Culture line</div>
         <p><strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong></p>
-        <p class="muted">A nod to tea heritage — calm, minimal, and human.</p>
+        <p class="muted">This is a meme. Drink tea. Stay calm.</p>
 
         <div class="hr"></div>
 
@@ -148,8 +175,8 @@
   </div>
 
   <script>
-    function copyAddr(){
-      const t = document.getElementById("addr").textContent.trim();
+    function copyText(id){
+      const t = document.getElementById(id).textContent.trim();
       navigator.clipboard.writeText(t).then(() => {
         alert("Copied");
       }).catch(() => {
