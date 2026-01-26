@@ -15,7 +15,6 @@
   --btn:rgba(255,255,255,.15);
   --btnLine:rgba(255,255,255,.3);
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -23,7 +22,6 @@ body{
   color:var(--fg);
   background:#0b1220;
 }
-
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1100px;margin:0 auto;padding:20px 18px 80px}
 
@@ -34,6 +32,7 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--line);
 }
 
+/* LOGO */
 .brand-logo{
   text-align:center;
   margin:20px 0 10px;
@@ -43,48 +42,50 @@ a{color:inherit;text-decoration:none}
   width:auto;
 }
 
+/* TEXT */
+h1{text-align:center;font-size:40px;margin:12px 0}
+.muted{text-align:center;color:var(--mut);line-height:1.6}
 .pill{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 16px;
+  display:inline-block;
+  padding:10px 18px;
   border-radius:999px;
   background:rgba(255,255,255,.08);
   border:1px solid var(--line);
   margin:0 auto;
 }
 
-h1{text-align:center;font-size:40px;margin:12px 0}
-.muted{text-align:center;color:var(--mut);line-height:1.6}
-
+/* HERO */
 .hero{
-  margin-top:30px;
+  margin-top:40px;
   background:var(--card);
   border:1px solid var(--line);
   border-radius:22px;
-  padding:22px;
+  padding:26px;
+  position:relative;
 }
-
 .grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:20px;
+  gap:24px;
 }
 @media(min-width:900px){
   .grid{grid-template-columns:1.2fr .8fr}
 }
-
 .box{
   background:rgba(18,28,51,.7);
   border:1px solid var(--line);
   border-radius:18px;
-  padding:18px;
+  padding:20px;
 }
-
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-
+.meta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:10px;
+  justify-content:center;
+}
 .btn{
-  padding:10px 16px;
+  padding:10px 18px;
   border-radius:14px;
   background:var(--btn);
   border:1px solid var(--btnLine);
@@ -92,37 +93,37 @@ h1{text-align:center;font-size:40px;margin:12px 0}
   cursor:pointer;
 }
 .btn:hover{filter:brightness(1.1)}
-
 .mono{font-family:ui-monospace,monospace}
 .hr{height:1px;background:rgba(255,255,255,.12);margin:14px 0}
+
+/* HERO LINKS */
+.hero-links{
+  margin-top:22px;
+  display:flex;
+  gap:14px;
+  justify-content:center;
+}
+
+/* TEAMAN – HERO ETRAFI */
+.teaman{
+  position:absolute;
+  width:70px;
+  opacity:0.85;
+  pointer-events:none;
+  filter:drop-shadow(0 0 8px rgba(0,0,0,.6));
+}
+.t-japan{ top:-35px; left:-30px; }
+.t-mexico{ top:40px; right:-35px; }
+.t-eskimo{ bottom:-40px; left:30px; }
+.t-africa{ bottom:-35px; right:40px; }
+.t-france{ top:55%; left:-45px; }
+.t-india{ top:65%; right:-45px; }
 
 footer{
   margin-top:50px;
   text-align:center;
   color:var(--mut);
   font-size:13px;
-}
-
-/* TEAMAN FLOATING */
-.teaman{
-  position:fixed;
-  width:110px;
-  opacity:0.85;
-  pointer-events:none;
-  z-index:1;
-  filter:drop-shadow(0 0 12px rgba(0,0,0,.6));
-}
-
-.t-japan{ top:100px; left:30px; }
-.t-mexico{ top:260px; right:40px; }
-.t-eskimo{ bottom:120px; left:60px; }
-.t-africa{ bottom:80px; right:90px; }
-.t-france{ top:480px; left:65%; }
-.t-russia{ bottom:300px; right:50%; }
-.t-india{ top:650px; left:20%; }
-
-@media(max-width:900px){
-  .teaman{ width:70px; opacity:0.6; }
 }
 </style>
 </head>
@@ -151,37 +152,55 @@ TEAGLASS is a cultural token built around that idea.
 </p>
 
 <!-- HERO -->
-<div class="hero grid">
-  <div class="box">
-    <div class="muted">Solana Mint</div>
-    <p class="mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
-    <div class="meta">
-      <button class="btn" onclick="copyText('mint')">Copy</button>
-      <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank">Swap</a>
-      <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank">Pool</a>
+<div class="hero">
+
+  <!-- TEAMANS -->
+  <img src="assets/japanese.png" class="teaman t-japan">
+  <img src="assets/mexican.png" class="teaman t-mexico">
+  <img src="assets/eskimo.png" class="teaman t-eskimo">
+  <img src="assets/african.png" class="teaman t-africa">
+  <img src="assets/french.png" class="teaman t-france">
+  <img src="assets/indian.png" class="teaman t-india">
+
+  <div class="grid">
+    <div class="box">
+      <div class="muted" style="text-align:center">Solana Mint</div>
+      <p class="mono" id="mint" style="text-align:center">
+        E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T
+      </p>
+      <div class="meta">
+        <button class="btn" onclick="copyText('mint')">Copy</button>
+        <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank">Swap</a>
+        <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank">Pool</a>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="muted" style="text-align:center">Liquidity Vault</div>
+      <p class="mono" id="vault" style="text-align:center">
+        5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4
+      </p>
+      <div class="meta">
+        <button class="btn" onclick="copyText('vault')">Copy</button>
+      </div>
     </div>
 
-    <div class="hr"></div>
-
-    <div class="muted">Liquidity Vault</div>
-    <p class="mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
-    <div class="meta">
-      <button class="btn" onclick="copyText('vault')">Copy</button>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="meta">
-      <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank">X</a>
-      <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
-      <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
+    <div class="box" style="text-align:center">
+      <p><strong>
+        TEAGLASS IS NOT A COMMUNITY.<br>
+        IT IS A CULTURAL BROTHERHOOD.
+      </strong></p>
+      <p class="muted">This is a meme.<br>Drink tea. Stay calm.</p>
     </div>
   </div>
 
-  <div class="box" style="text-align:center">
-    <p><strong>TEAGLASS IS NOT A COMMUNITY.<br>IT IS A CULTURAL BROTHERHOOD.</strong></p>
-    <p class="muted">This is a meme.<br>Drink tea. Stay calm.</p>
+  <!-- HERO LINKS -->
+  <div class="hero-links">
+    <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank">X</a>
+    <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
+    <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
   </div>
+
 </div>
 
 <footer>
@@ -190,15 +209,6 @@ This page is informational only. Nothing here is financial advice.
 
 </div>
 
-<!-- FLOATING TEAMANS -->
-<img src="assets/japanese.png" class="teaman t-japan">
-<img src="assets/mexican.png" class="teaman t-mexico">
-<img src="assets/eskimo.png" class="teaman t-eskimo">
-<img src="assets/african.png" class="teaman t-africa">
-<img src="assets/french.png" class="teaman t-france">
-<img src="assets/russian.png" class="teaman t-russia">
-<img src="assets/indian.png" class="teaman t-india">
-
 <script>
 function copyText(id){
   const t = document.getElementById(id).textContent.trim();
@@ -206,6 +216,5 @@ function copyText(id){
   alert("Copied");
 }
 </script>
-
 </body>
 </html>
