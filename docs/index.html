@@ -4,17 +4,16 @@
   <meta charset="utf-8">
   <title>TEAGLASS (TGLSS)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Official landing page for TEAGLASS (TGLSS). A culture meme inspired by tea."/>
+  <meta name="description" content="TEAGLASS (TGLSS) – Just for Tea Lovers."/>
 
   <style>
     :root{
-      --bg:#0b1220;
       --fg:#e8eefc;
       --mut:#a8b3cf;
       --card:rgba(18,28,51,.78);
       --line:rgba(255,255,255,.12);
-      --btn:rgba(255,255,255,.08);
-      --btnLine:rgba(255,255,255,.18);
+      --btn:rgba(255,255,255,.12);
+      --btnLine:rgba(255,255,255,.25);
       --ok:#7ee787;
     }
     *{box-sizing:border-box}
@@ -22,167 +21,176 @@
       margin:0;
       font-family:system-ui,Segoe UI,Roboto,Arial;
       color:var(--fg);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)),
-        url("assets/Sylhet-Tea-Garden-1024x565.jpeg") center/cover no-repeat fixed;
-      min-height:100vh;
+      background:#0b1220;
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
-    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{height:44px;width:auto}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px 18px 70px}
+
+    .header-banner img{
+      width:100%;
+      border-radius:20px;
+      margin-bottom:20px;
+      border:1px solid var(--line);
+    }
+
     .pill{
       display:inline-flex;align-items:center;gap:10px;
       padding:10px 14px;border-radius:999px;
       background:rgba(255,255,255,.08);
       border:1px solid var(--line);
-      backdrop-filter: blur(6px);
+      margin-bottom:10px;
     }
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 16px rgba(126,231,135,.35)}
-    h1{margin:16px 0 6px;font-size:36px;letter-spacing:.2px}
-    .muted{color:var(--mut);line-height:1.55}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok)}
+
+    h1{margin:10px 0;font-size:38px}
+    .muted{color:var(--mut);line-height:1.6}
+
     .hero{
       margin-top:18px;
       background:var(--card);
       border:1px solid var(--line);
       border-radius:22px;
       padding:22px;
-      backdrop-filter: blur(8px);
     }
+
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
     @media(min-width:900px){ .grid{grid-template-columns:1.2fr .8fr} }
+
     .box{
       background:rgba(18,28,51,.7);
       border:1px solid var(--line);
       border-radius:18px;
       padding:18px;
-      backdrop-filter: blur(6px);
     }
+
     .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
     .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:14px;
+      display:inline-flex;align-items:center;
+      padding:10px 14px;border-radius:14px;
       background:var(--btn);
       border:1px solid var(--btnLine);
+      color:white;
       cursor:pointer;
     }
-    .btn:hover{filter:brightness(1.06)}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .btn:hover{filter:brightness(1.1)}
+
+    .mono{font-family:ui-monospace,monospace}
     .hr{height:1px;background:rgba(255,255,255,.12);margin:14px 0}
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .gallery img{width:100%;height:90px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
-    @media(max-width:700px){ .gallery{grid-template-columns:repeat(2,1fr)} }
-    footer{margin-top:28px;color:var(--mut);font-size:13px}
+
+    /* TEAMAN */
+    .teaman-section{
+      margin-top:40px;
+      text-align:center;
+    }
+    .teaman-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+    .teaman-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px;
+    }
+    .teaman-card img{
+      width:100%;
+      border-radius:12px;
+    }
+    .teaman-card span{
+      display:block;
+      margin-top:6px;
+      font-size:14px;
+      color:var(--mut);
+    }
+
+    footer{margin-top:40px;color:var(--mut);font-size:13px;text-align:center}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <!-- TOP BAR -->
-    <div class="top">
-      <div class="brand">
-        <img class="logo" src="assets/7d7f3683-23d5-4d0e-ab08-4b5ac9ea0a0e.png" alt="TEAGLASS logo">
-        <div class="pill"><span class="dot"></span><span>Not a coin. For tea lovers.</span></div>
-      </div>
-      <div class="pill">Official landing page</div>
-    </div>
+<div class="wrap">
 
-    <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
-    <p class="muted">
-      Tea is timeless, inexpensive, and a gathering point for calm conversation.
-      TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
-    </p>
-
-    <!-- HERO -->
-    <div class="hero grid">
-      <!-- LEFT -->
-      <div class="box">
-
-        <div class="muted">Now on Solana</div>
-        <p class="mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
-        <div class="meta">
-          <button class="btn" onclick="copyText('mint')">Copy Mint</button>
-          <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank" rel="noopener">Swap (Raydium)</a>
-          <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">Pool</a>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="muted">Solana Pool</div>
-        <p class="mono" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</p>
-        <div class="meta">
-          <button class="btn" onclick="copyText('pool')">Copy Pool</button>
-          <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">View on Raydium</a>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="muted">Liquidity Vault</div>
-        <p class="mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
-        <div class="meta">
-          <button class="btn" onclick="copyText('vault')">Copy Vault</button>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="muted">Legacy on BSC (Archive)</div>
-        <p class="mono" id="addr">0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75</p>
-        <div class="meta">
-          <button class="btn" onclick="copyText('addr')">Copy</button>
-          <a class="btn" href="https://bscscan.com/address/0xd6b92806d5cA246D6C4Ba359a2689314DD2FAd75" target="_blank" rel="noopener">BscScan</a>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="muted">Links</div>
-        <div class="meta">
-          <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
-          <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Whitepaper</a>
-          <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
-        </div>
-      </div>
-
-      <!-- RIGHT -->
-      <div class="box">
-        <div class="muted">What this is</div>
-        <p>
-          A simple public page to share the essentials: mint address, trading links,
-          and a short description.
-        </p>
-
-        <div class="hr"></div>
-
-        <div class="muted">Culture line</div>
-        <p><strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong></p>
-        <p class="muted">This is a meme. Drink tea. Stay calm.</p>
-
-        <div class="hr"></div>
-
-        <div class="muted">Tea gallery</div>
-        <div class="gallery">
-          <img src="assets/tea1.jpg" alt="Tea 1">
-          <img src="assets/tea2.jpg" alt="Tea 2">
-          <img src="assets/tea3.jpg" alt="Tea 3">
-          <img src="assets/tea4.jpg" alt="Tea 4">
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      Disclaimer: This page is informational only. Nothing here is financial advice.
-    </footer>
+  <!-- HEADER -->
+  <div class="header-banner">
+    <img src="assets/teaglass_header_1500x500_exact.png">
   </div>
 
-  <script>
-    function copyText(id){
-      const t = document.getElementById(id).textContent.trim();
-      navigator.clipboard.writeText(t).then(() => {
-        alert("Copied");
-      }).catch(() => {
-        alert("Copy failed. Please copy manually:\n" + t);
-      });
-    }
-  </script>
+  <div class="pill"><span class="dot"></span><span>Just for Tea Lovers...</span></div>
+
+  <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
+  <p class="muted">
+    Tea is timeless, inexpensive, and a gathering point for calm conversation.
+    TEAGLASS is a cultural token built around that idea.
+  </p>
+
+  <!-- HERO -->
+  <div class="hero grid">
+    <div class="box">
+      <div class="muted">Solana Mint</div>
+      <p class="mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
+      <div class="meta">
+        <button class="btn" onclick="copyText('mint')">Copy</button>
+        <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank">Swap</a>
+        <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank">Pool</a>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="muted">Liquidity Vault</div>
+      <p class="mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
+      <div class="meta">
+        <button class="btn" onclick="copyText('vault')">Copy</button>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="meta">
+        <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank">X</a>
+        <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
+        <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <div class="box">
+      <p><strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong></p>
+      <p class="muted">This is a meme. Drink tea. Stay calm.</p>
+    </div>
+  </div>
+
+  <!-- TEAMAN -->
+  <div class="teaman-section">
+    <h2>Teaman Multiverse</h2>
+    <div class="teaman-grid">
+      <div class="teaman-card"><img src="assets/african Teaman.png"><span>African</span></div>
+      <div class="teaman-card"><img src="assets/arabic Teaman.png"><span>Arabic</span></div>
+      <div class="teaman-card"><img src="assets/biresilian Teaman.png"><span>Brazilian</span></div>
+      <div class="teaman-card"><img src="assets/chineese Teaman.png"><span>Chinese</span></div>
+      <div class="teaman-card"><img src="assets/english teaman.png"><span>English</span></div>
+      <div class="teaman-card"><img src="assets/eskimo Teaman.png"><span>Eskimo</span></div>
+      <div class="teaman-card"><img src="assets/eygipt Teaman.png"><span>Egyptian</span></div>
+      <div class="teaman-card"><img src="assets/french Teaman.png"><span>French</span></div>
+      <div class="teaman-card"><img src="assets/hind Teaman.png"><span>Indian</span></div>
+      <div class="teaman-card"><img src="assets/mexican Teaman.png"><span>Mexican</span></div>
+      <div class="teaman-card"><img src="assets/italian Teaman.png"><span>Italian</span></div>
+      <div class="teaman-card"><img src="assets/japan Teaman.png"><span>Japanese</span></div>
+      <div class="teaman-card"><img src="assets/russian Teaman.png"><span>Russian</span></div>
+    </div>
+  </div>
+
+  <footer>
+    This page is informational only. Nothing here is financial advice.
+  </footer>
+</div>
+
+<script>
+function copyText(id){
+  const t = document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(t);
+  alert("Copied");
+}
+</script>
 </body>
 </html>
