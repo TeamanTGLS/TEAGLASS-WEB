@@ -1,499 +1,385 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>TEAGLASS (TGLSS)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Official landing page for TEAGLASS (TGLSS). A culture meme inspired by tea." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEAGLASS (TGLSS) • Just for Tea Lovers</title>
+  <meta name="description" content="TEAGLASS – A minimal cultural token inspired by tea. No hype, just calm conversation and timeless tea culture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --fg:#e8eefc;
-      --mut:#a8b3cf;
-
-      --card:rgba(18,28,51,.78);
-      --card2:rgba(18,28,51,.62);
-
-      --line:rgba(255,255,255,.14);
-      --line2:rgba(255,255,255,.10);
-
-      --btn:rgba(255,255,255,.10);
-      --btnLine:rgba(255,255,255,.26);
-      --btnHover:rgba(255,255,255,.16);
-
-      --ok:#7ee787;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+    :root {
+      --bg: #0a1f0f;
+      --card: rgba(20, 35, 25, 0.75);
+      --accent: #e67e22;       /* Warm tea orange */
+      --green: #27ae60;
+      --text: #f0f7f0;
+      --muted: #a8c0a8;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:system-ui,Segoe UI,Roboto,Arial;
-      color:var(--fg);
-      background:
-        radial-gradient(1200px 700px at 50% 20%, rgba(30,90,120,.30), rgba(0,0,0,0)),
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35)),
-        url("assets/Sylhet-Tea-Garden-1024x565.jpeg") center/cover no-repeat fixed;
-      min-height:100vh;
-      overflow-x:hidden;
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(39,174,96,0.08), transparent 60%),
+        url('assets/Sylhet-Tea-Garden-1024x565.jpeg') center/cover no-repeat fixed;
     }
 
-    a{color:inherit;text-decoration:none}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 1.5rem; position: relative; }
 
-    /* Layout */
-    .wrap{max-width:1200px;margin:0 auto;padding:18px 18px 70px;position:relative}
-
-    /* Top banner */
-    .banner{
-      width:100%;
-      border-radius:22px;
-      border:1px solid var(--line);
-      overflow:hidden;
-      background:rgba(0,0,0,.25);
+    .banner {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(4px);
     }
-    .banner img{
-      display:block;
-      width:100%;
-      height:auto;
+    .banner img { width: 100%; height: auto; display: block; }
+
+    .top-row {
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    /* Top pills row */
-    .topRow{
-      margin-top:14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid var(--line);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-      font-size:14px;
-    }
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 16px rgba(126,231,135,.35)}
-
-    /* Big logo under banner (separate) */
-    .brandRow{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .bigLogo{
-      width:64px;
-      height:64px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.25);
-      overflow:hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    .bigLogo img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* HERO */
-    .hero{
-      margin-top:18px;
-      position:relative;
-      min-height:100vh; /* IMPORTANT: full screen hero */
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      padding:18px 0 30px;
-    }
-
-    .heroHead{
-      text-align:center;
-      max-width:950px;
-      padding:8px 10px;
-    }
-
-    h1{
-      margin:12px 0 6px;
-      font-size:42px;
-      letter-spacing:.2px;
-      text-shadow: 0 10px 22px rgba(0,0,0,.45);
-    }
-    .subtitle{
-      margin:0 auto;
-      font-size:18px;
-      line-height:1.55;
-      color:rgba(232,238,252,.92);
-      text-shadow: 0 10px 18px rgba(0,0,0,.40);
-    }
-    .muted{color:var(--mut);line-height:1.55}
-
-    /* Main glass panel */
-    .panel{
-      width:min(980px, 100%);
-      margin-top:20px;
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:24px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
       backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(39,174,96,0.5); }
+
+    .brand-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 6rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .subtitle {
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.25rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .main-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1.8rem;
+      backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
-      padding:18px;
-      position:relative;
-      z-index:3; /* above teamans */
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
+    .grid {
+      display: grid;
+      gap: 1.8rem;
     }
-    @media(min-width:920px){
-      .grid{grid-template-columns:1.25fr .75fr}
-    }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1.3fr 0.7fr; } }
 
-    .box{
-      background:rgba(18,28,51,.58);
-      border:1px solid var(--line2);
-      border-radius:18px;
-      padding:16px;
+    .box {
+      background: rgba(20,35,25,0.6);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 1.5rem;
       backdrop-filter: blur(8px);
     }
 
-    .sectionTitle{
-      font-weight:650;
-      font-size:14px;
-      letter-spacing:.2px;
-      color:rgba(232,238,252,.90);
-      text-transform:none;
-      text-align:center;
+    .section-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
     }
 
-    .addr{
-      text-align:center;
-      margin:10px 0 0;
-      font-size:13.5px;
-      line-height:1.45;
-      word-break:break-all;
-      color:rgba(232,238,252,.92);
+    .addr {
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      font-size: 0.95rem;
+      word-break: break-all;
+      color: var(--text);
+      background: rgba(0,0,0,0.2);
+      padding: 0.8rem;
+      border-radius: 0.8rem;
+      margin: 0.8rem 0;
     }
 
-    .meta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px;
-      justify-content:center; /* centered buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 1rem;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      background:var(--btn);
-      border:1px solid var(--btnLine);
-      cursor:pointer;
-      color:rgba(255,255,255,.92);
-      font-size:13px;
-      line-height:1;
-      user-select:none;
-      transition: .15s ease;
-      min-height:38px;
+    .btn {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      background: rgba(230,126,34,0.15);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .btn:hover{background:var(--btnHover);transform:translateY(-1px)}
-    .btn:active{transform:translateY(0px)}
-    .btn:focus{outline:2px solid rgba(255,255,255,.22);outline-offset:2px}
-    button.btn{font-family:inherit}
-
-    .hr{height:1px;background:rgba(255,255,255,.12);margin:14px 0}
-
-    /* Right side cards */
-    .cardTitle{
-      font-weight:750;
-      text-align:center;
-      margin:0 0 8px;
-      font-size:14px;
-    }
-    .cardText{
-      margin:0;
-      text-align:center;
-      color:rgba(232,238,252,.86);
-      font-size:13.5px;
-      line-height:1.55;
+    .btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
     }
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:10px;
-      margin-top:10px;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
     }
-    .gallery img{
-      width:100%;
-      height:90px;
-      object-fit:cover;
-      border-radius:12px;
-      border:1px solid var(--line);
+    .gallery img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 0.8rem;
+      border: 1px solid var(--border);
+      transition: transform 0.3s;
     }
-    @media(max-width:700px){
-      .gallery{grid-template-columns:repeat(2,1fr)}
-    }
+    .gallery img:hover { transform: scale(1.05); }
 
-    /* Bottom links inside left box */
-    .bottomLinks{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-
-    /* Manifesto placed "el alta" as a centered strip under panel */
-    .manifestoStrip{
-      width:min(980px, 100%);
-      margin:16px auto 0;
-      background:var(--card2);
-      border:1px solid var(--line2);
-      border-radius:18px;
-      padding:14px 16px;
-      text-align:center;
+    .manifesto {
+      text-align: center;
+      margin: 3rem auto 2rem;
+      max-width: 900px;
+      padding: 1.5rem;
+      background: rgba(20,35,25,0.5);
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
       backdrop-filter: blur(8px);
-      box-shadow: 0 16px 48px rgba(0,0,0,.35);
-      z-index:3;
-      position:relative;
     }
-    .manifestoStrip strong{
-      display:block;
-      font-size:14px;
-      letter-spacing:.4px;
-      margin-bottom:6px;
-    }
-    .manifestoStrip .muted{
-      margin:0;
-      font-size:13px;
+    .manifesto strong {
+      font-size: 1.4rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.8rem;
     }
 
-    footer{
-      margin-top:22px;
-      color:var(--mut);
-      font-size:13px;
-      text-align:center;
-      text-shadow: 0 10px 18px rgba(0,0,0,.35);
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      padding-bottom: 2rem;
     }
 
-    /* TEAMAN LAYER (scrolls with page, NOT fixed) */
-    .teaman-layer{
-      position:absolute;
-      left:50%;
-      top:0;
-      transform:translateX(-50%);
-      width:min(1200px, 100%);
-      height:100%;
-      pointer-events:none;
-      z-index:1; /* behind panel */
+    /* Teaman decorative layer */
+    .teaman-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
     }
-
-    .teaman{
-      position:absolute;
-      width:120px;
-      height:auto;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow: 0 14px 40px rgba(0,0,0,.45);
-      opacity:.98;
-      filter:saturate(1.02) contrast(1.02);
+    .teaman {
+      position: absolute;
+      width: 110px;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      opacity: 0.7;
+      transition: opacity 0.4s;
     }
-    @media(max-width:900px){
-      .teaman{width:92px; border-radius:14px;}
-    }
-    @media(max-width:520px){
-      .teaman{width:78px; border-radius:12px;}
-    }
+    .teaman:hover { opacity: 1; }
 
-    /* 13 positions around the hero panel (symmetrical-ish) */
-    /* Left side stack */
-    .t1 { top: 220px; left: 10px; }          /* african */
-    .t2 { top: 370px; left: 50px; }          /* arabic */
-    .t3 { top: 540px; left: 0px; }           /* brazil */
-    .t4 { top: 700px; left: 70px; }          /* chinese */
+    /* Positions */
+    .t1 { top: 15%; left: 5%; }
+    .t2 { top: 28%; left: 12%; }
+    .t3 { top: 45%; left: 3%; }
+    .t4 { top: 60%; left: 15%; }
+    .t5 { top: 18%; right: 5%; }
+    .t6 { top: 32%; right: 10%; }
+    .t7 { top: 50%; right: 4%; }
+    .t8 { top: 65%; right: 14%; }
+    .t9 { bottom: 15%; left: 20%; }
+    .t10 { bottom: 10%; left: 50%; transform: translateX(-50%); }
+    .t11 { bottom: 15%; right: 20%; }
+    .t12 { top: 8%; left: 18%; }
+    .t13 { top: 8%; right: 18%; }
 
-    /* Right side stack */
-    .t5 { top: 230px; right: 10px; }         /* egypt */
-    .t6 { top: 390px; right: 60px; }         /* english */
-    .t7 { top: 560px; right: 0px; }          /* eskimo */
-    .t8 { top: 720px; right: 75px; }         /* french */
-
-    /* Bottom ring */
-    .t9  { top: 880px; left: 160px; }        /* indian */
-    .t10 { top: 900px; left: 50%; transform: translateX(-50%); } /* italian */
-    .t11 { top: 880px; right: 160px; }       /* japanese */
-
-    /* Top corners near banner/hero heading */
-    .t12 { top: 120px; left: 180px; }        /* mexican */
-    .t13 { top: 120px; right: 180px; }       /* russian */
-
-    /* make sure teamans don't cover the panel on small screens */
-    @media(max-width:920px){
-      .t1 { left:-6px } .t3{left:-10px} .t5{right:-6px} .t7{right:-10px}
-      .t12{left:10px} .t13{right:10px}
-      .t9{left:12px} .t11{right:12px}
+    @media (max-width: 900px) {
+      .teaman { width: 80px; }
+      .t9, .t11 { bottom: 5%; }
     }
   </style>
 </head>
-
 <body>
+
   <div class="wrap">
 
-    <!-- Banner -->
     <div class="banner">
-      <img src="assets/teaglass_header_1500x500_exact.png" alt="TEAGLASS header banner">
+      <img src="assets/teaglass_header_1500x500_exact.png" alt="TEAGLASS Banner">
     </div>
 
-    <!-- Top pills -->
-    <div class="topRow">
-      <div class="brandRow">
-        <!-- Separate big logo (NOT in banner) -->
-        <div class="bigLogo" title="TEAGLASS logo">
-          <img src="assets/7d7f3683-23d5-4d0e-ab08-4b5ac9ea0a0e.png" alt="TEAGLASS logo">
+    <div class="top-row">
+      <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <div class="brand-logo">
+          <img src="assets/7d7f3683-23d5-4d0e-ab08-4b5ac9ea0a0e.png" alt="TEAGLASS Logo">
         </div>
-
         <div class="pill">
           <span class="dot"></span>
-          <span>Just For Tea Lovers…</span>
+          <span>Just for Tea Lovers… ☕</span>
         </div>
       </div>
-
-      <div class="pill">Official landing page</div>
+      <div class="pill">Official Landing Page</div>
     </div>
 
-    <!-- HERO -->
     <section class="hero">
-
-      <!-- Teamans layer (absolute inside hero, scrolls with page) -->
+      <!-- Teaman decorative layer -->
       <div class="teaman-layer" aria-hidden="true">
-        <img src="assets/african.png"  class="teaman t1"  alt="">
-        <img src="assets/arabic.png"   class="teaman t2"  alt="">
-        <img src="assets/brazil.png"   class="teaman t3"  alt="">
-        <img src="assets/chinese.png"  class="teaman t4"  alt="">
-
-        <img src="assets/egypt.png"    class="teaman t5"  alt="">
-        <img src="assets/english.png"  class="teaman t6"  alt="">
-        <img src="assets/eskimo.png"   class="teaman t7"  alt="">
-        <img src="assets/french.png"   class="teaman t8"  alt="">
-
-        <img src="assets/indian.png"   class="teaman t9"  alt="">
-        <img src="assets/italian.png"  class="teaman t10" alt="">
+        <img src="assets/african.png" class="teaman t1" alt="">
+        <img src="assets/arabic.png" class="teaman t2" alt="">
+        <img src="assets/brazil.png" class="teaman t3" alt="">
+        <img src="assets/chinese.png" class="teaman t4" alt="">
+        <img src="assets/egypt.png" class="teaman t5" alt="">
+        <img src="assets/english.png" class="teaman t6" alt="">
+        <img src="assets/eskimo.png" class="teaman t7" alt="">
+        <img src="assets/french.png" class="teaman t8" alt="">
+        <img src="assets/indian.png" class="teaman t9" alt="">
+        <img src="assets/italian.png" class="teaman t10" alt="">
         <img src="assets/japanese.png" class="teaman t11" alt="">
-
-        <img src="assets/mexican.png"  class="teaman t12" alt="">
-        <img src="assets/russian.png"  class="teaman t13" alt="">
+        <img src="assets/mexican.png" class="teaman t12" alt="">
+        <img src="assets/russian.png" class="teaman t13" alt="">
       </div>
 
-      <!-- Head -->
-      <div class="heroHead">
-        <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
-        <p class="subtitle">
-          Tea is timeless, inexpensive, and a gathering point for calm conversation.
-          TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
-        </p>
-      </div>
+      <h1>TEAGLASS <span style="font-family:monospace; color:#ccc;">(TGLSS)</span></h1>
+      <p class="subtitle">
+        Tea is timeless, inexpensive, and a gathering point for calm conversation.<br>
+        TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
+      </p>
 
-      <!-- Main panel -->
-      <div class="panel">
+      <div class="main-panel">
         <div class="grid">
-
-          <!-- LEFT -->
+          <!-- Left: Technical info -->
           <div class="box">
-            <div class="sectionTitle">Now on Solana</div>
-            <p class="addr mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
-            <div class="meta">
-              <button class="btn" onclick="copyText('mint')">Copy Mint</button>
-              <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank" rel="noopener">Swap (Raydium)</a>
+            <div class="section-title">Now on Solana</div>
+            <div class="addr" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</div>
+            <div class="btn-group">
+              <button class="btn" onclick="copy('mint')">Copy Mint</button>
+              <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank">Swap on Raydium</a>
             </div>
 
-            <div class="hr"></div>
+            <hr style="border:none; height:1px; background:var(--border); margin:1.5rem 0;">
 
-            <div class="sectionTitle">Solana Pool</div>
-            <p class="addr mono" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</p>
-            <div class="meta">
-              <button class="btn" onclick="copyText('pool')">Copy Pool</button>
-              <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">View on Raydium</a>
+            <div class="section-title">Solana Pool</div>
+            <div class="addr" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</div>
+            <div class="btn-group">
+              <button class="btn" onclick="copy('pool')">Copy Pool</button>
+              <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank">View Pool</a>
             </div>
 
-            <div class="hr"></div>
+            <hr style="border:none; height:1px; background:var(--border); margin:1.5rem 0;">
 
-            <div class="sectionTitle">Liquidity Vault</div>
-            <p class="addr mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
-            <div class="meta">
-              <button class="btn" onclick="copyText('vault')">Copy Vault</button>
+            <div class="section-title">Liquidity Vault</div>
+            <div class="addr" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</div>
+            <div class="btn-group">
+              <button class="btn" onclick="copy('vault')">Copy Vault</button>
             </div>
 
-            <div class="hr"></div>
+            <hr style="border:none; height:1px; background:var(--border); margin:1.5rem 0;">
 
-            <div class="sectionTitle">Links</div>
-            <div class="bottomLinks">
-              <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
-              <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Whitepaper</a>
+            <div class="section-title">Connect</div>
+            <div class="btn-group">
+              <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank">X (Twitter)</a>
+              <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
               <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
             </div>
           </div>
 
-          <!-- RIGHT -->
+          <!-- Right: Whitepaper + Gallery -->
           <div class="box">
-            <!-- Whitepaper card (replaces the old "what this is" spot) -->
-            <div class="cardTitle">Whitepaper</div>
-            <p class="cardText">
-              Everything important is here: concept, culture, and the no-promises stance.
+            <div class="section-title">Whitepaper</div>
+            <p style="text-align:center; color:var(--muted); margin:1rem 0;">
+              Concept, culture, and the no-promises philosophy — everything important is here.
             </p>
-            <div class="meta">
-              <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Open Whitepaper</a>
+            <div class="btn-group">
+              <a class="btn" href="whitepaper/index.html" target="_blank">Read Whitepaper</a>
             </div>
 
-            <div class="hr"></div>
+            <hr style="border:none; height:1px; background:var(--border); margin:1.5rem 0;">
 
-            <div class="cardTitle">Tea gallery</div>
+            <div class="section-title">Tea Gallery</div>
             <div class="gallery">
-              <img src="assets/tea1.jpg" alt="Tea 1">
-              <img src="assets/tea2.jpg" alt="Tea 2">
-              <img src="assets/tea3.jpg" alt="Tea 3">
-              <img src="assets/tea4.jpg" alt="Tea 4">
+              <img src="assets/tea1.jpg" alt="Tea moment 1">
+              <img src="assets/tea2.jpg" alt="Tea moment 2">
+              <img src="assets/tea3.jpg" alt="Tea moment 3">
+              <img src="assets/tea4.jpg" alt="Tea moment 4">
             </div>
           </div>
-
         </div>
       </div>
 
-      <!-- Manifesto: centered & nice, placed "el alta" under panel -->
-      <div class="manifestoStrip">
-        <strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong>
-        <p class="muted">This is a meme. Drink tea. Stay calm.</p>
+      <div class="manifesto">
+        <strong>TEAGLASS IS NOT A COMMUNITY.<br>IT IS A CULTURAL BROTHERHOOD.</strong>
+        <p style="color:var(--muted); margin-top:0.8rem;">This is a meme. Drink tea. Stay calm. ☕</p>
       </div>
-
-      <footer>
-        Disclaimer: This page is informational only. Nothing here is financial advice.
-      </footer>
     </section>
+
+    <footer>
+      Disclaimer: This page is informational only. Nothing here is financial advice. © TEAGLASS 2026
+    </footer>
   </div>
 
   <script>
-    function copyText(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      const t = el.textContent.trim();
-      navigator.clipboard.writeText(t).then(() => {
-        // no ugly alerts on nice UI, tiny feedback
-        const old = document.title;
-        document.title = "Copied ✓";
-        setTimeout(()=>document.title=old, 800);
-      }).catch(() => {
-        alert("Copy failed. Please copy manually:\n" + t);
-      });
+    function copy(id) {
+      const text = document.getElementById(id)?.innerText?.trim();
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.createElement('div');
+        toast.textContent = 'Copied! ☕';
+        toast.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(39,174,96,0.9); color:white; padding:12px 24px; border-radius:50px; z-index:9999; box-shadow:0 4px 12px rgba(0,0,0,0.4);';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 1800);
+      }).catch(() => alert('Copy failed – please copy manually: ' + text));
     }
   </script>
 </body>
