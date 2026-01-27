@@ -1,176 +1,280 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>TEAGLASS (TGLSS)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="TEAGLASS (TGLSS) – Just for Tea Lovers."/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Official landing page for TEAGLASS (TGLSS). A culture meme inspired by tea." />
 
   <style>
     :root{
-      --fg:#ffffff;
-      --mut:#cfd8e3;
-      --card:rgba(10,18,35,.78);
-      --line:rgba(255,255,255,.15);
+      --fg:#e8eefc;
+      --mut:#a8b3cf;
+
+      --card:rgba(18,28,51,.86);
+      --card2:rgba(18,28,51,.64);
+
+      --line:rgba(255,255,255,.14);
+      --line2:rgba(255,255,255,.10);
+
       --btn:rgba(255,255,255,.12);
-      --btnLine:rgba(255,255,255,.25);
+      --btnLine:rgba(255,255,255,.30);
+      --btnHover:rgba(255,255,255,.18);
+
+      --ok:#7ee787;
+      --shadow: 0 22px 80px rgba(0,0,0,.52);
+      --shadow2: 0 14px 44px rgba(0,0,0,.42);
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
+
     body{
       margin:0;
       font-family:system-ui,Segoe UI,Roboto,Arial;
       color:var(--fg);
       background:
-        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.4)),
+        radial-gradient(1200px 700px at 50% 12%, rgba(80,140,180,.20), rgba(0,0,0,0)),
+        linear-gradient(180deg, rgba(0,0,0,.60), rgba(0,0,0,.34)),
         url("assets/Sylhet-Tea-Garden-1024x565.jpeg") center/cover no-repeat fixed;
       min-height:100vh;
+      overflow-x:hidden;
     }
 
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1200px;margin:0 auto;padding:40px 20px}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 
-    /* HEADER BANNER */
-    .header-banner{
+    .wrap{
+      max-width:1400px;
+      margin:0 auto;
+      padding:18px 18px 70px;
+    }
+
+    /* Banner */
+    .banner{
       width:100%;
-      max-width:1000px;
-      margin:0 auto 40px;
-      border-radius:18px;
+      border-radius:22px;
+      border:1px solid var(--line);
       overflow:hidden;
-      box-shadow:0 20px 60px rgba(0,0,0,.6);
+      background:rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
+      margin-bottom:16px;
     }
-    .header-banner img{
-      width:100%;
-      display:block;
+    .banner img{display:block;width:100%;height:auto}
+
+    /* Top row */
+    .topRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
     }
+    .brandRow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.28);
+      font-size:14px;
+      white-space:nowrap;
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 16px rgba(126,231,135,.35)}
+
+    /* Separate logo */
+    .bigLogo{
+      width:60px;height:60px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      flex:0 0 auto;
+    }
+    .bigLogo img{width:100%;height:100%;object-fit:cover;display:block}
 
     /* HERO */
     .hero{
-      min-height:70vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      padding:22px 0 0;
+    }
+
+    .heroHead{
       text-align:center;
-      margin-bottom:40px;
+      max-width:1100px;
+      margin:0 auto 18px;
+      padding:4px 10px 0;
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size:clamp(42px, 4.2vw, 64px);
+      letter-spacing:.2px;
+      text-shadow: 0 12px 28px rgba(0,0,0,.50);
+    }
+    .subtitle{
+      margin:0 auto;
+      font-size:clamp(16px, 1.35vw, 22px);
+      line-height:1.65;
+      color:rgba(232,238,252,.95);
+      text-shadow: 0 10px 18px rgba(0,0,0,.40);
+      max-width:980px;
+    }
+    .muted{color:var(--mut);line-height:1.55}
+
+    /* Big center panel */
+    .panelWrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      padding:10px 0 10px;
     }
 
-    .hero h1{
-      font-size:48px;
-      margin:20px 0 10px;
-      letter-spacing:.5px;
-    }
-
-    .hero p{
-      max-width:720px;
-      font-size:18px;
-      color:var(--mut);
-      line-height:1.6;
-    }
-
-    /* MAIN CARD */
-    .card{
+    .panel{
+      width:min(1320px, 100%);
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:22px;
-      padding:28px;
-      backdrop-filter: blur(10px);
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:24px;
-      box-shadow:0 30px 80px rgba(0,0,0,.6);
+      border-radius:28px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      padding:22px;
     }
 
-    @media(max-width:900px){
-      .card{grid-template-columns:1fr}
-      .hero h1{font-size:36px}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    @media(min-width:980px){
+      .grid{grid-template-columns:1.25fr .75fr}
     }
 
     .box{
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
+      background:rgba(18,28,51,.58);
+      border:1px solid var(--line2);
       border-radius:18px;
-      padding:20px;
+      padding:18px;
+      backdrop-filter: blur(10px);
     }
 
-    .title{
-      font-size:18px;
-      margin-bottom:8px;
-      color:#9fb7ff;
+    .sectionTitle{
+      font-weight:800;
+      font-size:clamp(15px, 1.1vw, 17px);
+      letter-spacing:.2px;
+      text-align:center;
+      margin:0;
     }
 
-    .mono{
-      font-family:ui-monospace,Menlo,Consolas,monospace;
+    .addr{
+      text-align:center;
+      margin:10px 0 0;
+      font-size:clamp(14px, 1.08vw, 16px);
+      line-height:1.5;
       word-break:break-all;
-      font-size:14px;
+      color:rgba(232,238,252,.96);
     }
 
-    .row{margin-bottom:16px}
-
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      justify-content:center;
+    }
 
     .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
       background:var(--btn);
       border:1px solid var(--btnLine);
-      padding:10px 14px;
-      border-radius:12px;
-      font-size:14px;
       cursor:pointer;
+      color:rgba(255,255,255,.95);
+      font-size:clamp(13.5px, 1.05vw, 15px);
+      line-height:1;
+      user-select:none;
+      transition:.15s ease;
+      min-height:42px;
     }
-    .btn:hover{filter:brightness(1.1)}
+    .btn:hover{background:var(--btnHover);transform:translateY(-1px)}
+    .btn:active{transform:translateY(0px)}
+    button.btn{font-family:inherit}
 
-    /* WHITEPAPER */
-    .whitepaper h3{
-      font-size:24px;
-      margin:0 0 10px;
+    .hr{height:1px;background:rgba(255,255,255,.12);margin:16px 0}
+
+    .cardTitle{
+      font-weight:900;
+      text-align:center;
+      margin:0 0 8px;
+      font-size:clamp(15px, 1.1vw, 17px);
     }
-    .whitepaper p{
-      font-size:16px;
-      line-height:1.6;
-      color:var(--mut);
+    .cardText{
+      margin:0;
+      text-align:center;
+      color:rgba(232,238,252,.90);
+      font-size:clamp(14px, 1.05vw, 15.5px);
+      line-height:1.65;
     }
 
-    .whitepaper .btn{
-      margin-top:12px;
-      font-size:15px;
-      padding:12px 20px;
-    }
-
-    /* GALLERY */
     .gallery{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:10px;
-      margin-top:10px;
+      margin-top:12px;
     }
     .gallery img{
       width:100%;
-      height:90px;
+      height:110px;
       object-fit:cover;
-      border-radius:10px;
+      border-radius:12px;
       border:1px solid var(--line);
     }
+    @media(max-width:760px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .gallery img{height:105px}
+    }
 
-    /* CULTURE LINE */
-    .culture{
-      margin-top:40px;
+    .bottomLinks{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+
+    .manifestoStrip{
+      width:min(1320px, 100%);
+      margin:16px auto 0;
+      background:var(--card2);
+      border:1px solid var(--line2);
+      border-radius:18px;
+      padding:16px 18px;
       text-align:center;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
     }
-    .culture strong{
-      font-size:22px;
+    .manifestoStrip strong{
       display:block;
+      font-size:clamp(14px, 1.05vw, 16px);
+      letter-spacing:.45px;
+      margin-bottom:6px;
     }
-    .culture span{
-      display:block;
-      margin-top:6px;
-      color:var(--mut);
+    .manifestoStrip .muted{
+      margin:0;
+      font-size:clamp(13px, 1vw, 14px);
     }
 
     footer{
-      margin-top:30px;
-      text-align:center;
+      margin-top:18px;
       color:var(--mut);
       font-size:13px;
+      text-align:center;
+      text-shadow: 0 10px 18px rgba(0,0,0,.35);
     }
   </style>
 </head>
@@ -178,96 +282,123 @@
 <body>
   <div class="wrap">
 
-    <!-- HEADER IMAGE -->
-    <div class="header-banner">
-      <img src="assets/teaglass_header_1500x500_exact.png" alt="TEAGLASS header">
+    <div class="banner">
+      <img src="assets/teaglass_header_1500x500_exact.png" alt="TEAGLASS header banner">
     </div>
 
-    <!-- HERO -->
-    <div class="hero">
-      <h1>TEAGLASS (TGLSS)</h1>
-      <p>
-        Tea is timeless, inexpensive, and a gathering point for calm conversation.
-        TEAGLASS is a minimal cultural token — no hype, no promises, just tea culture.
-      </p>
-    </div>
-
-    <!-- MAIN CARD -->
-    <div class="card">
-
-      <!-- LEFT -->
-      <div class="box">
-        <div class="row">
-          <div class="title">Now on Solana</div>
-          <div class="mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</div>
-          <div class="btns">
-            <button class="btn" onclick="copyText('mint')">Copy Mint</button>
-            <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank">Swap</a>
-          </div>
+    <div class="topRow">
+      <div class="brandRow">
+        <div class="bigLogo" title="TEAGLASS logo">
+          <img src="assets/7d7f3683-23d5-4d0e-ab08-4b5ac9ea0a0e.png" alt="TEAGLASS logo">
         </div>
 
-        <div class="row">
-          <div class="title">Solana Pool</div>
-          <div class="mono" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</div>
-          <div class="btns">
-            <button class="btn" onclick="copyText('pool')">Copy Pool</button>
-            <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank">View</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="title">Liquidity Vault</div>
-          <div class="mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</div>
-          <div class="btns">
-            <button class="btn" onclick="copyText('vault')">Copy Vault</button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="title">Links</div>
-          <div class="btns">
-            <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank">X</a>
-            <a class="btn" href="whitepaper/index.html" target="_blank">Whitepaper</a>
-            <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
-          </div>
+        <div class="pill">
+          <span class="dot"></span>
+          <span>Not a coin. For tea lovers.</span>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="box whitepaper">
-        <h3>Whitepaper</h3>
-        <p>
-          Everything important is here: the concept, the culture,
-          and the philosophy behind TEAGLASS.
+      <div class="pill">Official landing page</div>
+    </div>
+
+    <section class="hero">
+      <div class="heroHead">
+        <h1>TEAGLASS <span class="mono">(TGLSS)</span></h1>
+        <p class="subtitle">
+          Tea is timeless, inexpensive, and a gathering point for calm conversation.
+          TEAGLASS is a minimal cultural token built around that idea — no hype, no promises, just tea culture.
         </p>
-        <a class="btn" href="whitepaper/index.html" target="_blank">Open Whitepaper</a>
+      </div>
 
-        <div class="title" style="margin-top:20px">Tea Gallery</div>
-        <div class="gallery">
-          <img src="assets/tea1.jpg">
-          <img src="assets/tea2.jpg">
-          <img src="assets/tea3.jpg">
-          <img src="assets/tea4.jpg">
+      <div class="panelWrap">
+        <div class="panel">
+          <div class="grid">
+
+            <!-- LEFT -->
+            <div class="box">
+              <p class="sectionTitle">Now on Solana</p>
+              <p class="addr mono" id="mint">E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T</p>
+              <div class="meta">
+                <button class="btn" onclick="copyText('mint')">Copy Mint</button>
+                <a class="btn" href="https://raydium.io/swap/?inputCurrency=sol&outputCurrency=E1dsYuFzGPbxXPxHrqrrEQdPbk84fbXkudu2o9H9o12T" target="_blank" rel="noopener">Swap (Raydium)</a>
+              </div>
+
+              <div class="hr"></div>
+
+              <p class="sectionTitle">Solana Pool</p>
+              <p class="addr mono" id="pool">GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf</p>
+              <div class="meta">
+                <button class="btn" onclick="copyText('pool')">Copy Pool</button>
+                <a class="btn" href="https://raydium.io/liquidity/GUVRYHmqjfpA2NJw2RMLNwMFCaySBNwTHgVCVseZ3fNf" target="_blank" rel="noopener">View on Raydium</a>
+              </div>
+
+              <div class="hr"></div>
+
+              <p class="sectionTitle">Liquidity Vault</p>
+              <p class="addr mono" id="vault">5bUWLcftHSMAgUqCN4YqqiYgtS1WTSc73qz781USHmQ4</p>
+              <div class="meta">
+                <button class="btn" onclick="copyText('vault')">Copy Vault</button>
+              </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="box">
+              <p class="cardTitle">Whitepaper</p>
+              <p class="cardText">
+                Everything important is here: concept, culture, and the no-promises stance.
+              </p>
+              <div class="meta">
+                <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Open Whitepaper</a>
+              </div>
+
+              <div class="hr"></div>
+
+              <p class="cardTitle">Tea gallery</p>
+              <div class="gallery">
+                <img src="assets/tea1.jpg" alt="Tea 1">
+                <img src="assets/tea2.jpg" alt="Tea 2">
+                <img src="assets/tea3.jpg" alt="Tea 3">
+                <img src="assets/tea4.jpg" alt="Tea 4">
+              </div>
+
+              <div class="hr"></div>
+
+              <p class="sectionTitle">Links</p>
+              <div class="bottomLinks">
+                <a class="btn" href="https://x.com/TeamanTGLSS" target="_blank" rel="noopener">X (Twitter)</a>
+                <a class="btn" href="whitepaper/index.html" target="_blank" rel="noopener">Whitepaper</a>
+                <a class="btn" href="mailto:teaman.tglss@gmail.com">Email</a>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- CULTURE LINE -->
-    <div class="culture">
-      <strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong>
-      <span>This is a meme. Drink tea. Stay calm.</span>
-    </div>
+      <div class="manifestoStrip">
+        <strong>TEAGLASS IS NOT A COMMUNITY. IT IS A CULTURAL BROTHERHOOD.</strong>
+        <p class="muted">This is a meme. Drink tea. Stay calm.</p>
+      </div>
 
-    <footer>
-      Disclaimer: This page is informational only. Nothing here is financial advice.
-    </footer>
+      <footer>
+        Disclaimer: This page is informational only. Nothing here is financial advice.
+      </footer>
+    </section>
+
   </div>
 
   <script>
     function copyText(id){
-      const t = document.getElementById(id).textContent.trim();
-      navigator.clipboard.writeText(t);
-      alert("Copied");
+      const el = document.getElementById(id);
+      if(!el) return;
+      const t = el.textContent.trim();
+      navigator.clipboard.writeText(t).then(() => {
+        const old = document.title;
+        document.title = "Copied ✓";
+        setTimeout(()=>document.title=old, 800);
+      }).catch(() => {
+        alert("Copy failed. Please copy manually:\n" + t);
+      });
     }
   </script>
 </body>
